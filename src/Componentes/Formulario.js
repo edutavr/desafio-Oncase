@@ -1,78 +1,45 @@
-import React, { Component } from 'react';
+import Styles from './Formulario.module.css'
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-class Form extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        nome: '',
-        sobrenome: '',
-        participacao: '', // Corrigido para "participacao"
-      };
-    }
-  
-    handleChange = (e) => {
-      const { name, value } = e.target;
-      this.setState({
-        [name]: value,
-      });
-    };
-  
-    handleSubmit = (e) => {
-      e.preventDefault(); // Evitar o comportamento padrão de recarregar a página
-  
-      // Aqui você pode adicionar a lógica para enviar os dados para o back-end
-      // Por enquanto, vamos apenas mostrar os dados no console
-      console.log('Nome:', this.state.nome);
-      console.log('Sobrenome:', this.state.sobrenome);
-      console.log('Participacao:', this.state.participacao);
-  
-      // Limpar os campos após o envio (opcional)
-      this.setState({
-        nome: '',
-        sobrenome: '',
-        participacao: '',
-      });
-    };
-  
-    render() {
-      return (
-        <div>
-          <h2>Formulário</h2>
-          <form onSubmit={this.handleSubmit}>
-            <div>
-              <label htmlFor="nome">Nome:</label>
-              <input
-                type="text"
-                id="nome"
-                name="nome"
-                value={this.state.nome}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="sobrenome">Sobrenome:</label>
-              <input
-                type="text"
-                id="sobrenome"
-                name="sobrenome"
-                value={this.state.sobrenome}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="participacao">Participacao:</label>
-              <input
-                type="text"
-                id="participacao"
-                name="participacao"
-                value={this.state.participacao}
-                onChange={this.handleChange}
-              />
-            </div>
-            <button type="submit">Enviar</button>
-          </form>
-        </div>
-      );
-    }
-  }
-  
+function Header (){
+    const [nome, setName] = useState("");
+    const [sobrenome, setSobrenome] = useState("");
+    const [participacao, setParticipacao] = useState("");
+    const [data, setData] = useState([]);
+
+async function createCalc(e){
+    //não atualiza a pagina
+    e.preventDefault();
+    //pega os dados 
+    const data = {nome, sobrenome, participacao };
+    console.log(data);
+    await axios.post('', data)
+}
+
+useEffect(() => {
+    axios.get('').then(result => {
+        setData(result.data);
+    })
+})
+    return(
+            <form className={Styles.baseFundo} onSubmit={createCalc}>
+
+                <div className={Styles.input_container}>
+                    <input className={Styles.input} type="text" id="campo1" name="campo1" placeholder="First Name" onChange={(e) => setName(e.target.value)}/>
+                </div>  
+
+                <div className={Styles.input_container}>
+                    <input className={Styles.input} type="text" id="campo2" name="campo2" placeholder="Last Name" onChange={(e) => setSobrenome(e.target.value)}/>
+                </div>
+                
+                <div className={Styles.input_container}>
+                    <input className={Styles.input} type="text" id="campo3" name="campo3" placeholder="Participation" onChange={(e) => setParticipacao(e.target.value)}/>
+                </div>
+
+                <button className={Styles.botao}><p>SEND</p></button>
+            </form>
+    )
+}
+
+export default Header; 

@@ -1,0 +1,33 @@
+.baseFundo {
+
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #00b8e2;
+    padding: 40px 0;
+}
+
+.input_container {
+    
+    margin-right: 15px;
+}
+
+.input {
+
+    padding: 0 15px;
+    
+    width: 200px;
+    height: 40px;
+}
+
+.botao {
+
+    color: white;
+    background-color: #00b8e2;
+
+    font-weight: bold;
+
+    padding: 10px 20px;
+    border: 2px solid white;
+}
