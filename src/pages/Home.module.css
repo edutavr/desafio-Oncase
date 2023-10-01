@@ -1,0 +1,25 @@
+.dados {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap-reverse;
+
+	margin-top: 50px;
+}
+
+.titulo {
+
+    color: #394b50;
+    text-align: center;
+    margin-top: 40px;
+}
+
+
+
+.paragrafo {
+
+    color: #394b50;
+    text-align: center;
+
+    margin-top: 10px;
+}

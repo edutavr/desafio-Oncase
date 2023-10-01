@@ -1,0 +1,36 @@
+.tabela {
+	display: inline;
+	width: 35%;
+	border-collapse: collapse;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+
+	margin-left: 17%;
+}
+
+
+.cabecalho {
+	color: #707070;
+	text-align: left;
+}
+
+.cabecalho th {
+	padding: 10px;
+	border: 1px solid #ddd;
+	cursor: pointer; 
+}
+
+.cabecalho td {
+	padding: 8px;
+	border: 1px solid #ddd;
+}
+
+.col {
+	width: 150px;
+	padding: 8px;
+	border: 1px solid #ddd;
+}
+
+.id {
+	width: 10px;
+}
